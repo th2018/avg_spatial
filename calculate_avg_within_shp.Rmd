@@ -4,11 +4,16 @@ library(raster)
 library(sp)
 library(maptools)
 library(rgdal)
+#http://cirrus.ucsd.edu/~pierce/ncdf/
+#library("ncdf4")
 ```
 
 ```{r}
 #read shp
 mask2<- readOGR("C:/Users/huangt/Documents/cntry00", "Ghana")
+
+#read .nc
+#ppt_2018 <- raster("C:/Users/huangt/Downloads/TerraClimate_ppt_2018.nc",  varname = "ppt")
 
 #read tif
 b1<-raster("C:/Users/huangt/geotiff/africa_arc.19960101.tif")
