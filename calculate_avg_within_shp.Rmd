@@ -1,0 +1,27 @@
+#load packages
+```{r}
+library(raster)
+library(sp)
+library(maptools)
+library(rgdal)
+```
+
+```{r}
+#read shp
+mask2<- readOGR("C:/Users/huangt/Documents/cntry00", "Ghana")
+
+#read tif
+b1<-raster("C:/Users/huangt/geotiff/africa_arc.19960101.tif")
+b2<-raster("C:/Users/huangt/geotiff/africa_arc.19960102.tif")
+#avg tif 
+r<-sum(stack(b1,b2))/2
+#clip
+clip<-mask(r,mask2)
+#plot 
+plot(clip)
+ #export
+clip<-writeRaster(clip, filename =  "b1_b2.tif"
+ , format="GTiff")
+
+```
+
